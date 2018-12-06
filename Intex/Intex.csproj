@@ -247,6 +247,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Manager\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -315,7 +316,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Agent\" />
     <Folder Include="Views\Customer\" />
-    <Folder Include="Views\Manager\" />
     <Folder Include="Views\Seattle\" />
     <Folder Include="Views\Singaport\" />
   </ItemGroup>

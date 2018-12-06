@@ -13,8 +13,6 @@ namespace Intex.Controllers
             return View();
         }
 
-
-        //Testy test testt test
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
