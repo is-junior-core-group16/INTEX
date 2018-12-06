@@ -216,6 +216,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Backlog.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientEmployee.cs" />
     <Compile Include="Models\Compound.cs" />
@@ -224,6 +225,7 @@
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Material.cs" />
+    <Compile Include="Models\OrderTest.cs" />
     <Compile Include="Models\Sample.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\TestResult.cs" />
@@ -248,6 +250,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Singapore\Index.cshtml" />
+    <Content Include="Views\Singapore\Backlog.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -317,7 +322,6 @@
     <Folder Include="Views\Agent\" />
     <Folder Include="Views\Customer\" />
     <Folder Include="Views\Seattle\" />
-    <Folder Include="Views\Singaport\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -26,5 +26,10 @@ namespace Intex.Controllers
 
             return View();
         }
+
+        public ActionResult FAQ()
+        {
+            return View("Index");
+        }
     }
 }

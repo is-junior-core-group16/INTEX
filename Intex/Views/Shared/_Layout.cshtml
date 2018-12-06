@@ -21,12 +21,26 @@
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("FAQs", "FAQ", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Roles <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                         
+                            <li><a href="@Url.Action("Index","Singapore")">Singapore Employee</a></li>
+                            <li><a href="@Url.Action("Index","Seattle")">Seattle Employee</a></li>
+                            <li><a href="@Url.Action("Index","Manager")">Manager</a></li>
+                            <li><a href="@Url.Action("Index","Agent")">Sales Rep</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
+                
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

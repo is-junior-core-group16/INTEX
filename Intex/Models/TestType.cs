@@ -18,6 +18,6 @@ namespace Intex.Models
         public float HoursRequired { get; set; }
         public bool IsSecondary { get; set; }
         public string TestInstructions { get; set; }
-
+        public float BasePrice { get; set; }
     }
 }

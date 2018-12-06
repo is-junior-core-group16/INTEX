@@ -27,5 +27,8 @@ namespace Intex.DAL
         public DbSet<Status> Statuses { get; set; }
         public DbSet<TestMaterial> TestMaterials { get; set; }
         public DbSet<Material> Materials { get; set; }
+        public DbSet<OrderTest> OrderTests { get; set; }
+
+        public System.Data.Entity.DbSet<Intex.Models.Backlog> Backlogs { get; set; }
     }
 }

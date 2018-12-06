@@ -18,7 +18,7 @@ namespace Intex.Models
         public string Appearance { get; set; }
         public float ReportedWeight { get; set; }
         public float ActualWeight { get; set; }
-        public int TestTypeID { get; set; }
+        
 
 
 

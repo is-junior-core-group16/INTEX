@@ -7,15 +7,15 @@ using System.Web;
 
 namespace Intex.Models
 {
-    [Table("Compound")]
-    public class Compound
+    [Table("OrderTest")]
+    public class OrderTest
     {
-        [Key]
-        public int LT { get; set; }
+        [Key, Column(Order=1)]
         public int OrderID { get; set; }
-        public string CompoundName { get; set; }
-        public float MolecularMass { get; set; }
-        public int StatusID { get; set; }
+
+        [Key, Column(Order =2)]
+        public int TestTypeID { get; set; }
+
 
     }
 }
