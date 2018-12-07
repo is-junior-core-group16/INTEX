@@ -80,9 +80,10 @@ namespace Intex.Controllers
                 "SELECT ClientID FROM ClientEmployee WHERE ID = " + "'" + Id + "'"
                 ).FirstOrDefault();
 
-            IEnumerable<Compound> report = db.Database.SqlQuery<Compound>(
+            List<Compound> report = db.Database.SqlQuery<Compound>(
                 "Select * FROM Compound WHERE (StatusID Between 1 AND 6) AND ClientID = " + CID
-                );
+                ).ToList<Compound>();
+            
             foreach (Compound compound in report)
             {
                 compound.Status = db.Statuses.Find(compound.StatusID);
@@ -123,26 +124,26 @@ namespace Intex.Controllers
                     "SELECT ClientID FROM ClientEmployee WHERE Id = '" + Id + "'").FirstOrDefault();
                 order.ClientID = ClientID;
 
-
+                DateTime date = DateTime.Now;
 
                 db.Database.ExecuteSqlCommand(
-                    "INSERT INTO WorkOrder (OrderID, ClientID, CustomerComments, IsExpedited) " +
-                    "VALUES (" + order.OrderID + ", " + order.ClientID + ", " + order.CustomerComments + ", " +
-                    order.IsExpedited + ")"
+                    "INSERT INTO WorkOrder (OrderID, ClientID, CustomerComments, IsExpedited, DateCreated) " +
+                    "VALUES (" + order.OrderID + ", " + order.ClientID + ", '" + order.CustomerComments + "', " +
+                    Convert.ToInt16(order.IsExpedited) + ", " + date + ")"
                     );
 
                 db.Database.ExecuteSqlCommand(
-                    "INSERT INTO WorkOrder (OrderID, ClientID, CustomerComments, IsExpedited) " +
-                    "VALUES (" + order.OrderID + ", " + order.ClientID + ", " + order.CustomerComments + ", " +
-                    order.IsExpedited + ")"
-                    );
-                Compound pound = new Compound();
+                    "INSERT INTO Compound (LT, OrderID, ClientID, CompoundName, MolecularMass, StatusID, InvoiceID) " +
+                    "VALUES (" + order.LT + ", " + order.OrderID + ", " + order.ClientID + ", '" + order.CompoundName + "', " +
+                    order.MolecularMass + ", 1, null)"
+                    ); 
+                /*Compound pound = new Compound();
                 pound.LT = LT;
                 pound.OrderID = OrderID;
                 pound.CompoundName = order.CompoundName;
                 pound.MolecularMass = order.MolecularMass;
                 pound.StatusID = 1;
-                db.Compounds.Add(pound);
+                db.Compounds.Add(pound);*/
 
                 foreach(string i in order.SelectedTests)
                 {

@@ -19,15 +19,17 @@ namespace Intex.Controllers
 
         public ActionResult Backlog()
         {
-            IEnumerable<Backlog> backlog = db.Database.SqlQuery<Backlog>(
+
+            var date = DateTime.Now;
+            List<Backlog> backlog = db.Database.SqlQuery<Backlog>(
                 "SELECT" +
-                "   c.Name, wo.OrderID, co.CompoundName, co.LT, tt.TestDescription, wo.IsExpedited, wo.DateArrived, wo.DateDue " +
-                "FROM WorkOrder wo INNER JOIN Client c ON c.OrderID = wo.OrderID " +
+                "  co.LT, c.Name, co.OrderID, co.CompoundName,  tt.TestDescription, wo.IsExpedited, wo.DateArrived, wo.DateCreated, wo.DateDue, co.StatusID " +
+                "FROM WorkOrder wo INNER JOIN Client c ON c.ClientID = wo.ClientID " +
                 "       INNER JOIN Compound co ON co.OrderID = wo.OrderID" +
                 "           INNER JOIN OrderTest ot ON ot.OrderID = wo.OrderID" +
                 "               INNER JOIN TestType tt ON tt.TestTypeID = ot.TestTypeID " +
                 "WHERE co.StatusID = 2"
-                );
+                ).ToList<Backlog>();
             return View(backlog);
         } //Make a way for them to change the status. Maybe in an HttpPost? A scheduled button?
 

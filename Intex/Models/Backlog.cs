@@ -10,7 +10,6 @@ namespace Intex.Models
     {
         [Key]
         public int LT { get; set; }
-
         public string Name { get; set; }
         public int OrderID { get; set; }
         public string CompoundName { get; set; }

@@ -14,7 +14,7 @@ namespace Intex.Models
         public int LT { get; set; }
         public int OrderID { get; set; }
         public string CompoundName { get; set; }
-        public float MolecularMass { get; set; }
+        public double MolecularMass { get; set; }
         public int ClientID { get; set; }
         public virtual Client Client { get; set; }
 
