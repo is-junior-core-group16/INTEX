@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Intex.Models.Compound>
+
+@{
+    ViewBag.Title = "Cancel Orders";
+}
+
+<h2>CancelOrders</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompoundName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MolecularMass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status.StatusDescription)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompoundName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MolecularMass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status.StatusDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Cancel", "Cancel", new { id = item.LT })
+        </td>
+
+    </tr>
+    }
+
+</table>

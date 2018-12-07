@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Intex.Models.Compound>
+
+@{
+    ViewBag.Title = "ViewReport";
+}
+
+<h2>Current Report</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompoundName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MolecularMass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status.StatusDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompoundName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MolecularMass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status.StatusDescription)
+        </td>
+        
+    </tr>
+}
+
+</table>

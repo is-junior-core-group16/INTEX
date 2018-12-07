@@ -40,25 +40,54 @@ namespace Intex.Controllers
                 return View("Error");
             }
 
-            IEnumerable<Compound> pastlist = db.Database.SqlQuery<Compound>(
-                "SELECT LT, OrderID, CompoundName, MolecularMass, StatusID " +
-                "FROM Compound " +
-                "WHERE ClientID = " + Id 
-                //Make this specific to the ClientID that the person making the request has
-                //and build out the view. 2EZ
+            int CID = db.Database.SqlQuery<int>(
+                "SELECT ClientID FROM ClientEmployee WHERE ID = " + "'" + Id + "'"
+                ).FirstOrDefault();
+
+            
+            IEnumerable<Report> pastlist = db.Database.SqlQuery<Report>(
+                
+                "SELECT" +
+                "c.CompoundName, wo.DateCreated, c.LT, tt.TestDescription, tr.Passed " +
+                
+                "FROM WorkOrder wo " +
+                "       INNER JOIN Compound c ON c.OrderID = wo.OrderID" +
+                "           INNER JOIN OrderTest ot ON ot.OrderID = wo.OrderID" +
+                "               INNER JOIN TestType tt ON tt.TestTypeID = ot.TestTypeID " +
+                "                   INNER JOIN TestResult tr ON tr.LT = c.LT AND tr.TestTypeID = tt.TestTypeID " +
+                "WHERE c.ClientID = " + CID +
+                " AND c.StatusID = 7"
                 );
-
-            foreach(Compound compound in pastlist)
-            {
-                compound.Status = db.Statuses.Find(compound.StatusID);
-            }
-
+                
+           
+            
             return View(pastlist);
         }
 
+        
+
         public ActionResult CurrentOrders()
         {
-            return View();
+            var Id = User.Identity.GetUserId();
+
+            if (Id == null)
+            {
+                ViewBag.ErrorMessage = "Please sign in before submitting an order.";
+                return View("Error");
+            }
+
+            int CID = db.Database.SqlQuery<int>(
+                "SELECT ClientID FROM ClientEmployee WHERE ID = " + "'" + Id + "'"
+                ).FirstOrDefault();
+
+            IEnumerable<Compound> report = db.Database.SqlQuery<Compound>(
+                "Select * FROM Compound WHERE (StatusID Between 1 AND 6) AND ClientID = " + CID
+                );
+            foreach (Compound compound in report)
+            {
+                compound.Status = db.Statuses.Find(compound.StatusID);
+            }
+            return View(report);
         }
 
         [HttpPost]
@@ -149,6 +178,11 @@ namespace Intex.Controllers
             new SelectListItem {Text = "CustomScreen", Value = "7"},
             new SelectListItem {Text = "Other (Please specify in the comments section)", Value = "8"},
         };
+        }
+
+        public ActionResult Calendar()
+        {
+            return View();
         }
     }
 }

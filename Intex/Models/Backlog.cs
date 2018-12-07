@@ -16,8 +16,10 @@ namespace Intex.Models
         public string CompoundName { get; set; }
         public string TestDescription { get; set; }
         public bool IsExpedited { get; set; }
-        public DateTime DateArrived { get; set; }
+        public DateTime? DateArrived { get; set; }
+        public DateTime? DateCreated { get; set; }
         public DateTime DateDue { get; set; }
+        public int? StatusID { get; set; }
 
     }
 }

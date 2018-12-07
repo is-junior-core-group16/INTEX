@@ -29,6 +29,32 @@ namespace Intex.Controllers
                 "WHERE co.StatusID = 2"
                 );
             return View(backlog);
+        } //Make a way for them to change the status. Maybe in an HttpPost? A scheduled button?
+
+        public ActionResult PendingArrival()
+        {
+            IEnumerable<Backlog> arrivers = db.Database.SqlQuery<Backlog>(
+               "SELECT" +
+               "   c.Name, wo.OrderID, co.CompoundName, co.LT, tt.TestDescription, wo.IsExpedited, wo.DateCreated, wo.DateDue " +
+               "FROM WorkOrder wo INNER JOIN Client c ON c.OrderID = wo.OrderID " +
+               "       INNER JOIN Compound co ON co.OrderID = wo.OrderID" +
+               "           INNER JOIN OrderTest ot ON ot.OrderID = wo.OrderID" +
+               "               INNER JOIN TestType tt ON tt.TestTypeID = ot.TestTypeID " +
+               "WHERE co.StatusID = 1"
+               );
+
+            if(arrivers == null)
+            {
+                ViewBag.Thing = "Pending Arrivals";
+                return View("empty");
+            }
+
+            return View(arrivers);
+        }
+
+        public ActionResult empty()
+        {
+            return View();
         }
     }
 }

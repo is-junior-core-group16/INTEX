@@ -16,7 +16,9 @@ namespace Intex.Models
         public string CompoundName { get; set; }
         public float MolecularMass { get; set; }
         public int ClientID { get; set; }
+        public virtual Client Client { get; set; }
 
+        public int? InvoiceID { get; set; }
 
         public int StatusID { get; set; }
         public virtual Status Status { get; set; }

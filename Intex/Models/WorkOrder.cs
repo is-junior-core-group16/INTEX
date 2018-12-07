@@ -20,5 +20,6 @@ namespace Intex.Models
         public string EmployeeComments { get; set; }
         public bool Discount { get; set; }
         public bool IsExpedited { get; set; }
+        public DateTime? DateCreated { get; set; }
     }
 }

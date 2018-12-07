@@ -227,6 +227,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\OrderTest.cs" />
+    <Compile Include="Models\Quote.cs" />
+    <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Sample.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\TestResult.cs" />
@@ -259,6 +261,14 @@
     <Content Include="Views\Customer\ThankYou.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\PastOrders.cshtml" />
+    <Content Include="Views\Customer\CurrentOrders.cshtml" />
+    <Content Include="Views\Agent\CancelOrders.cshtml" />
+    <Content Include="Views\Agent\Cancel.cshtml" />
+    <Content Include="Views\Singapore\PendingArrival.cshtml" />
+    <Content Include="Views\Singapore\empty.cshtml" />
+    <Content Include="Views\Customer\Calendar.cshtml" />
+    <Content Include="Views\Seattle\Index.cshtml" />
+    <Content Include="Views\Seattle\CurrentOrders.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -325,8 +335,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Agent\" />
-    <Folder Include="Views\Seattle\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

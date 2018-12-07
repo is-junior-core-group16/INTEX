@@ -36,5 +36,10 @@ namespace Intex.Controllers
         {
             return View();
         }
+
+        public ActionResult Quote()
+        {
+            return View();
+        }
     }
 }

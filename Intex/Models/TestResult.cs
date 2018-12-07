@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -20,6 +21,5 @@ namespace Intex.Models
         public bool Passed { get; set; }
         public string QuantitativeResult { get; set; }
         public string QualitativeResult { get; set; }
-
     }
 }
