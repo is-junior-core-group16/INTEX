@@ -2,10 +2,14 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<div class="container">
+    <div class="jumbotron">
 <h2>Singapore Section</h2>
 
-<button type="button" class="btn btn-primary"><a href="@Url.Action("Backlog","Singapore")">Backlog</a></button>
-<button type="button" class="btn btn-primary"><a href="@Url.Action("Backlog","Singapore")">Awaiting Compounds</a></button>
+<button type="button" class="btn btn-default"><a href="@Url.Action("Backlog","Singapore")">Backlog</a></button>
+<button type="button" class="btn btn-default"><a href="@Url.Action("PendingArrival","Singapore")">Awaiting Compounds</a></button>
 
+
+        </div>
+    </div>
 

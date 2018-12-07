@@ -18,7 +18,10 @@ namespace Intex.Controllers
         {
             return View();
         }
-
+        public ActionResult Error()
+        {
+            return View();
+        }
 
         public ActionResult CancelOrders()
         {

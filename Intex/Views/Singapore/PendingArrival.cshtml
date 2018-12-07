@@ -1,10 +1,10 @@
-﻿@model IEnumerable<Intex.Models.Backlog>
+﻿@model IEnumerable<Intex.Models.Compoundlog>
 
 @{
     ViewBag.Title = "PendingArrival";
 }
 
-<h2>Pending Arrival</h2>
+<h2>PendingArrival</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -21,20 +21,16 @@
             @Html.DisplayNameFor(model => model.CompoundName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TestDescription)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.IsExpedited)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateArrived)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.DateCreated)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateDue)
         </th>
+        
         <th></th>
     </tr>
 
@@ -50,24 +46,18 @@
             @Html.DisplayFor(modelItem => item.CompoundName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TestDescription)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.IsExpedited)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateArrived)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.DateCreated)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateDue)
         </td>
+        
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LT }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LT }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LT })
+            @Html.ActionLink("Arrived", "Arrived", new { id=item.LT }) 
         </td>
     </tr>
 }

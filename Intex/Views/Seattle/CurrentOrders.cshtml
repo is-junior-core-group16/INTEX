@@ -26,15 +26,11 @@
         <th>
             @Html.DisplayNameFor(model => model.IsExpedited)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateArrived)
-        </th>
+      
         <th>
             @Html.DisplayNameFor(model => model.DateCreated)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateDue)
-        </th>
+       
         <th></th>
     </tr>
 
@@ -55,20 +51,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.IsExpedited)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateArrived)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.DateCreated)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateDue)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LT }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LT }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LT })
-        </td>
+       
+     
     </tr>
 }
 

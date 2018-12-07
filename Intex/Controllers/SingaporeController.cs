@@ -35,13 +35,13 @@ namespace Intex.Controllers
 
         public ActionResult PendingArrival()
         {
-            IEnumerable<Backlog> arrivers = db.Database.SqlQuery<Backlog>(
+            IEnumerable<Compoundlog> arrivers = db.Database.SqlQuery<Compoundlog>(
                "SELECT" +
-               "   c.Name, wo.OrderID, co.CompoundName, co.LT, tt.TestDescription, wo.IsExpedited, wo.DateCreated, wo.DateDue " +
-               "FROM WorkOrder wo INNER JOIN Client c ON c.OrderID = wo.OrderID " +
-               "       INNER JOIN Compound co ON co.OrderID = wo.OrderID" +
-               "           INNER JOIN OrderTest ot ON ot.OrderID = wo.OrderID" +
-               "               INNER JOIN TestType tt ON tt.TestTypeID = ot.TestTypeID " +
+             "  co.LT, c.Name, co.OrderID, co.CompoundName, wo.IsExpedited, wo.DateArrived, wo.DateCreated, (wo.DateCreated + 42) AS DateDue, co.StatusID " +
+                "FROM WorkOrder wo INNER JOIN Client c ON c.ClientID = wo.ClientID " +
+                "       INNER JOIN Compound co ON co.OrderID = wo.OrderID" +
+                "           INNER JOIN OrderTest ot ON ot.OrderID = wo.OrderID" +
+                "               INNER JOIN TestType tt ON tt.TestTypeID = ot.TestTypeID " +
                "WHERE co.StatusID = 1"
                );
 
@@ -57,6 +57,30 @@ namespace Intex.Controllers
         public ActionResult empty()
         {
             return View();
+        }
+
+        public ActionResult Arrived(int id)
+        {
+            
+            db.Compounds.Find(id).StatusID = 2;
+            db.SaveChanges();
+
+            IEnumerable<Compoundlog> arrivers = db.Database.SqlQuery<Compoundlog>(
+               "SELECT DISTINCT" +
+             "  co.LT, c.Name, co.OrderID, co.CompoundName, wo.IsExpedited, wo.DateArrived, wo.DateCreated, (wo.DateCreated + 42) AS DateDue, co.StatusID " +
+                "FROM WorkOrder wo INNER JOIN Client c ON c.ClientID = wo.ClientID " +
+                "       INNER JOIN Compound co ON co.OrderID = wo.OrderID" +
+                "           INNER JOIN OrderTest ot ON ot.OrderID = wo.OrderID" +
+                "               INNER JOIN TestType tt ON tt.TestTypeID = ot.TestTypeID " +
+               "WHERE co.StatusID = 1"
+               );
+
+            if (arrivers == null)
+            {
+                ViewBag.Thing = "Pending Arrivals";
+                return View("empty");
+            }
+            return View("PendingArrival", arrivers);
         }
     }
 }

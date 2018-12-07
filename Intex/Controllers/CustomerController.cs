@@ -59,7 +59,10 @@ namespace Intex.Controllers
                 " AND c.StatusID = 7"
                 );
                 
-           
+           if(pastlist == null)
+            {
+                return View("empty");
+            }
             
             return View(pastlist);
         }
@@ -129,7 +132,7 @@ namespace Intex.Controllers
                 db.Database.ExecuteSqlCommand(
                     "INSERT INTO WorkOrder (OrderID, ClientID, CustomerComments, IsExpedited, DateCreated) " +
                     "VALUES (" + order.OrderID + ", " + order.ClientID + ", '" + order.CustomerComments + "', " +
-                    Convert.ToInt16(order.IsExpedited) + ", " + date + ")"
+                    Convert.ToInt16(order.IsExpedited) + ", '" + date + "')"
                     );
 
                 db.Database.ExecuteSqlCommand(

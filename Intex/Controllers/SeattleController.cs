@@ -20,19 +20,20 @@ namespace Intex.Controllers
 
         public ActionResult CurrentOrders()
         {
-           
-           
-                IEnumerable<Backlog> currentOrders = db.Database.SqlQuery<Backlog>(
-                    "SELECT" +
-                    "   c.Name, wo.OrderID, co.CompoundName, co.LT, tt.TestDescription, wo.IsExpedited, wo.DateCreated, wo.DateArrived, co.StatusID " +
-                    "FROM WorkOrder wo INNER JOIN Client c ON c.OrderID = wo.OrderID " +
-                    "       INNER JOIN Compound co ON co.OrderID = wo.OrderID" +
-                    "           INNER JOIN OrderTest ot ON ot.OrderID = wo.OrderID" +
-                    "               INNER JOIN TestType tt ON tt.TestTypeID = ot.TestTypeID "
-                    );
 
 
-            return View(currentOrders); //Ad the status to this. 
+            List<Backlog> currentorders = db.Database.SqlQuery<Backlog>(
+             "SELECT" +
+             "  co.LT, c.Name, co.OrderID, co.CompoundName,  tt.TestDescription, wo.IsExpedited, wo.DateArrived, wo.DateCreated, wo.DateDue, co.StatusID " +
+             "FROM WorkOrder wo INNER JOIN Client c ON c.ClientID = wo.ClientID " +
+             "       INNER JOIN Compound co ON co.OrderID = wo.OrderID" +
+             "           INNER JOIN OrderTest ot ON ot.OrderID = wo.OrderID" +
+             "               INNER JOIN TestType tt ON tt.TestTypeID = ot.TestTypeID " +
+             "WHERE co.StatusID Between 2 AND 6"
+             ).ToList<Backlog>();
+
+
+            return View(currentorders); //Ad the status to this. 
         }
 
         public ActionResult Billing()

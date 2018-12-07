@@ -220,6 +220,7 @@
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientEmployee.cs" />
     <Compile Include="Models\Compound.cs" />
+    <Compile Include="Models\Compoundlog.cs" />
     <Compile Include="Models\CreateWorkOrder.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -243,6 +244,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrapStuff.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -264,11 +266,15 @@
     <Content Include="Views\Customer\CurrentOrders.cshtml" />
     <Content Include="Views\Agent\CancelOrders.cshtml" />
     <Content Include="Views\Agent\Cancel.cshtml" />
-    <Content Include="Views\Singapore\PendingArrival.cshtml" />
     <Content Include="Views\Singapore\empty.cshtml" />
     <Content Include="Views\Customer\Calendar.cshtml" />
     <Content Include="Views\Seattle\Index.cshtml" />
     <Content Include="Views\Seattle\CurrentOrders.cshtml" />
+    <Content Include="Views\Agent\Index.cshtml" />
+    <Content Include="Views\Agent\Error.cshtml" />
+    <Content Include="Views\Customer\empty.cshtml" />
+    <Content Include="Views\Singapore\PendingArrival.cshtml" />
+    <Content Include="Views\Seattle\Billing.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

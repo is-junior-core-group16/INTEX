@@ -34,5 +34,7 @@ namespace Intex.DAL
         public System.Data.Entity.DbSet<Intex.Models.CreateWorkOrder> CreateWorkOrders { get; set; }
 
         public System.Data.Entity.DbSet<Intex.Models.Report> Reports { get; set; }
+
+        public System.Data.Entity.DbSet<Intex.Models.Compoundlog> Compoundlogs { get; set; }
     }
 }
