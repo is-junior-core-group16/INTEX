@@ -15,7 +15,10 @@ namespace Intex.Models
         public int OrderID { get; set; }
         public string CompoundName { get; set; }
         public float MolecularMass { get; set; }
-        public int StatusID { get; set; }
+        public int ClientID { get; set; }
 
+
+        public int StatusID { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

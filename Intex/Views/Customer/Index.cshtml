@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <div class="jumbotron">
+        <h2>Welcome!</h2>
+        <p>Please select an option below!</p>
+
+        <button type="button" class="btn btn-primary ribbon"><a href="@Url.Action("CreateWorkOrder","Customer")">Order an Assay</a></button>
+        <!-- Indicates a successful or positive action -->
+        <button type="button" class="btn btn-success ribbon"><a href="@Url.Action("PastOrders","Customer")">View Historical Orders</a></button>
+        <!-- Contextual button for informational alert messages -->
+        <button type="button" class="btn btn-info ribbon"><a href="@Url.Action("CurrentOrders","Customer")">View Orders in Progress</a></button>
+
+        <p>
+            Welcome, Cutesy little pick
+            Options - Buttons
+        </p>
+
+    </div>
+</div>

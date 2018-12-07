@@ -30,5 +30,7 @@ namespace Intex.DAL
         public DbSet<OrderTest> OrderTests { get; set; }
 
         public System.Data.Entity.DbSet<Intex.Models.Backlog> Backlogs { get; set; }
+
+        public System.Data.Entity.DbSet<Intex.Models.CreateWorkOrder> CreateWorkOrders { get; set; }
     }
 }

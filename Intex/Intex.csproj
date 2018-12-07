@@ -220,6 +220,7 @@
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientEmployee.cs" />
     <Compile Include="Models\Compound.cs" />
+    <Compile Include="Models\CreateWorkOrder.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Invoice.cs" />
@@ -253,6 +254,11 @@
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\Singapore\Index.cshtml" />
     <Content Include="Views\Singapore\Backlog.cshtml" />
+    <Content Include="Views\Customer\CreateWorkOrder.cshtml" />
+    <Content Include="Views\Customer\Error.cshtml" />
+    <Content Include="Views\Customer\ThankYou.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\PastOrders.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -320,7 +326,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Agent\" />
-    <Folder Include="Views\Customer\" />
     <Folder Include="Views\Seattle\" />
   </ItemGroup>
   <ItemGroup>

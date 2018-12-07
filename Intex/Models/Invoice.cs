@@ -19,6 +19,7 @@ namespace Intex.Models
         public string DiscountNotes { get; set; }
         public float AmountPaid { get; set; }
         public float AmountCharged { get; set; }
-
+        public float MaterialsCost { get; set; }
+        public float Hourscost { get; set; }
     }
 }

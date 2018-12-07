@@ -31,5 +31,10 @@ namespace Intex.Controllers
         {
             return View("Index");
         }
+
+        public ActionResult CreateOrder()
+        {
+            return View();
+        }
     }
 }
